@@ -1,0 +1,189 @@
+
+:root{
+  --volt-primary:#262b40;
+  --volt-primary-2:#313652;
+  --volt-secondary:#f5b700;
+  --volt-bg:#f5f6f8;
+  --volt-card:#ffffff;
+  --volt-text:#31344a;
+  --volt-muted:#7b8198;
+  --volt-border:#e7e9ef;
+  --volt-success:#2ca58d;
+  --volt-info:#3b82f6;
+  --volt-danger:#dc3545;
+  --volt-radius:0.6rem;
+  --volt-shadow:0 0.125rem 0.25rem rgba(17,24,39,.06);
+}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:"Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background:var(--volt-bg);
+  color:var(--volt-text);
+}
+a{text-decoration:none}
+.content{
+  margin-left:250px;
+  min-height:100vh;
+  padding:0 1.5rem 1.5rem;
+  transition:.25s ease;
+}
+.sidebar{
+  position:fixed;
+  inset:0 auto 0 0;
+  width:250px;
+  z-index:1030;
+  background:var(--volt-primary);
+  color:#fff;
+  box-shadow:6px 0 20px rgba(38,43,64,.08);
+  overflow-y:auto;
+}
+.sidebar-inner{padding:1rem 1rem 2rem}
+.brand{
+  display:flex;align-items:center;gap:.7rem;color:#fff;
+  padding:.75rem .7rem 1.25rem;margin-bottom:.5rem;
+  border-bottom:1px solid rgba(255,255,255,.08)
+}
+.brand-icon{
+  width:40px;height:40px;border-radius:.65rem;display:grid;place-items:center;
+  background:rgba(255,255,255,.1);font-size:1.05rem
+}
+.brand-title{font-weight:800;font-size:.97rem;line-height:1.15}
+.brand-sub{font-size:.68rem;color:rgba(255,255,255,.6);margin-top:.15rem}
+.sidebar-section{
+  padding:.8rem .7rem .4rem;
+  text-transform:uppercase;
+  font-size:.64rem;letter-spacing:.09em;color:rgba(255,255,255,.42);font-weight:800
+}
+.sidebar-nav{list-style:none;padding:0;margin:0}
+.sidebar-nav li{margin:.18rem 0}
+.sidebar-nav a{
+  display:flex;align-items:center;gap:.8rem;
+  padding:.72rem .8rem;border-radius:.45rem;color:rgba(255,255,255,.72);
+  font-size:.86rem;transition:.2s;
+}
+.sidebar-nav a:hover{background:rgba(255,255,255,.08);color:#fff}
+.sidebar-nav a.active{background:rgba(255,255,255,.12);color:#fff;font-weight:700}
+.sidebar-nav i{width:18px;text-align:center;font-size:.9rem}
+.logout-link{margin-top:.8rem;border-top:1px solid rgba(255,255,255,.08);padding-top:.8rem}
+.navbar-top{
+  background:#fff;
+  border-bottom:1px solid var(--volt-border);
+  min-height:76px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:1020;
+  margin:0 -1.5rem 1.25rem;
+  padding:0 1.5rem;
+}
+.search-box{
+  display:flex;align-items:center;gap:.6rem;background:#f7f8fa;
+  border:1px solid var(--volt-border);border-radius:.45rem;padding:.45rem .75rem;
+  min-width:280px;
+}
+.search-box input{border:0;outline:0;background:transparent;width:100%;font-size:.85rem}
+.top-actions{display:flex;align-items:center;gap:.75rem}
+.icon-btn{
+  width:38px;height:38px;border:1px solid var(--volt-border);background:#fff;border-radius:50%;
+  display:grid;place-items:center;color:#70778e
+}
+.user-menu{
+  display:flex;align-items:center;gap:.65rem;padding-left:.5rem
+}
+.user-avatar{
+  width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid #eceef4
+}
+.user-name{font-size:.82rem;font-weight:800}
+.user-role{font-size:.7rem;color:var(--volt-muted)}
+.mobile-toggle{
+  display:none;border:0;background:transparent;font-size:1.2rem;color:var(--volt-primary)
+}
+.page-heading{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;margin-bottom:1rem
+}
+.page-title{font-size:1.25rem;font-weight:800;margin:0}
+.page-subtitle{margin:.25rem 0 0;color:var(--volt-muted);font-size:.82rem}
+.btn-volt{
+  border:0;border-radius:.45rem;background:var(--volt-primary);color:#fff;padding:.55rem .85rem;
+  font-size:.82rem;font-weight:700
+}
+.btn-volt:hover{background:#1c2031;color:#fff}
+.card-volt{
+  background:var(--volt-card);border:1px solid var(--volt-border);border-radius:var(--volt-radius);
+  box-shadow:var(--volt-shadow);height:100%
+}
+.stat-card{padding:1.05rem 1.1rem}
+.stat-row{display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem}
+.stat-label{text-transform:uppercase;font-size:.67rem;font-weight:800;color:var(--volt-muted);letter-spacing:.06em}
+.stat-value{font-size:1.5rem;font-weight:800;color:var(--volt-primary);margin-top:.18rem}
+.stat-note{font-size:.72rem;color:var(--volt-muted);margin-top:.25rem}
+.stat-icon{
+  width:42px;height:42px;border-radius:.6rem;display:grid;place-items:center;
+  background:#eef0f6;color:var(--volt-primary);font-size:1rem
+}
+.stat-icon.success{background:#e8f6f1;color:#2a8b78}
+.stat-icon.info{background:#eaf2ff;color:#3b82f6}
+.stat-icon.warning{background:#fff5db;color:#bd8a00}
+.section-card{padding:1.1rem}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.85rem}
+.section-title{font-size:.95rem;font-weight:800;margin:0}
+.section-meta{font-size:.72rem;color:var(--volt-muted)}
+.table-volt{width:100%;border-collapse:collapse}
+.table-volt th{font-size:.67rem;text-transform:uppercase;letter-spacing:.05em;color:var(--volt-muted);font-weight:800;padding:.7rem .55rem;border-bottom:1px solid var(--volt-border)}
+.table-volt td{font-size:.78rem;padding:.75rem .55rem;border-bottom:1px solid #f0f1f4;vertical-align:middle}
+.badge-volt{display:inline-flex;align-items:center;padding:.3rem .55rem;border-radius:999px;font-size:.65rem;font-weight:800}
+.badge-success{background:#e7f7f2;color:#23806f}.badge-warning{background:#fff2cf;color:#9c7100}.badge-danger{background:#fdeaea;color:#ae2937}.badge-info{background:#eaf2ff;color:#2a68bd}
+.progress-line{height:7px;border-radius:99px;background:#edf0f4;overflow:hidden}
+.progress-fill{height:100%;border-radius:99px;background:var(--volt-primary)}
+.quick-action{
+  display:flex;align-items:center;gap:.8rem;padding:.8rem;border:1px solid var(--volt-border);
+  border-radius:.55rem;color:var(--volt-text);margin-bottom:.6rem;transition:.2s
+}
+.quick-action:hover{border-color:#d7dae3;background:#fafbfc;color:var(--volt-text)}
+.quick-icon{width:34px;height:34px;border-radius:.5rem;display:grid;place-items:center;background:#f1f3f7;color:var(--volt-primary)}
+.quick-text strong{display:block;font-size:.8rem}.quick-text span{display:block;font-size:.68rem;color:var(--volt-muted);margin-top:.08rem}
+.welcome{
+  background:linear-gradient(135deg,#262b40 0%,#39415f 100%);
+  color:#fff;border-radius:var(--volt-radius);padding:1.25rem 1.35rem;margin-bottom:1rem;
+}
+.welcome h2{font-size:1.2rem;margin:0 0 .25rem;font-weight:800}
+.welcome p{margin:0;color:rgba(255,255,255,.72);font-size:.8rem}
+.footer{font-size:.7rem;color:var(--volt-muted);text-align:center;padding:1.25rem 0 .2rem}
+.overlay{display:none}
+@media(max-width:991.98px){
+  .content{margin-left:0;padding:0 1rem 1rem}
+  .sidebar{transform:translateX(-100%);transition:.25s ease}
+  .sidebar.show{transform:translateX(0)}
+  .overlay.show{display:block;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:1025}
+  .mobile-toggle{display:inline-block}
+  .navbar-top{margin:0 -1rem 1rem;padding:0 1rem}
+  .search-box{min-width:0;width:42vw}
+}
+@media(max-width:575.98px){
+  .search-box{display:none}
+  .user-name,.user-role{display:none}
+  .page-title{font-size:1.1rem}
+}
+
+
+/* ===== Tipografi & penyelarasan global ===== */
+*, *::before, *::after { box-sizing: border-box; }
+body, button, input, textarea, select, option, table, .btn, .form-control, .form-select {
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+body { font-size: .9rem; line-height: 1.55; letter-spacing: .005em; }
+h1, h2, h3, h4, h5, h6, p { font-family: inherit; }
+h1, h2, h3, h4, h5, h6 { letter-spacing: -.01em; color: var(--volt-primary); }
+.btn, .btn-volt { letter-spacing: .01em; }
+.form-control, .form-select {
+  min-height: 42px;
+  border-color: var(--volt-border);
+  border-radius: .5rem;
+  font-size: .86rem;
+}
+.form-control:focus, .form-select:focus {
+  border-color: #b7bccb;
+  box-shadow: 0 0 0 .2rem rgba(38,43,64,.08);
+}
+.table-responsive { border-radius: var(--volt-radius); }
+.text-muted { color: var(--volt-muted) !important; }
+.small { font-size: .78rem !important; }

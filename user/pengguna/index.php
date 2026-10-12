@@ -1,0 +1,11 @@
+<?php
+require_once '../auth.php';
+$q=mysqli_query($con,"SELECT id_pengguna,username,nama,peran FROM tbl_pengguna WHERE id_pengguna={$id_user} LIMIT 1");
+$profil=$q?mysqli_fetch_assoc($q):null;
+?>
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Profil Pengguna - Grand Dian Hotel</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><link rel="stylesheet" href="../../assets_mantis/css/mantis-hotel.css"></head>
+<body class="bg-light"><nav class="navbar navbar-light mantis-topbar"><div class="container-fluid"><a href="../index.php" class="navbar-brand"><i class="fas fa-hotel me-2"></i>Grand Dian Hotel Bumiayu</a><a href="../../logout.php" class="btn btn-outline-light btn-sm">Logout</a></div></nav><div class="d-flex"><?php include '../template/sidebar.php'; ?><main class="flex-grow-1 p-4">
+<div class="page-heading-mantis"><div><h1 class="page-title-mantis">Pengguna</h1><p class="page-subtitle-mantis">Kelola informasi akun Anda.</p></div></div>
+<?php if(($_GET['pesan']??'')==='edit'): ?><div class="alert alert-success">Profil berhasil diperbarui.</div><?php endif; ?>
+<div class="card shadow-sm border-0" style="max-width:760px"><div class="card-body p-4"><div class="row g-4 align-items-center"><div class="col-md-3 text-center"><div class="mantis-avatar mx-auto mb-2" style="width:74px;height:74px;font-size:28px;"><?= e(strtoupper(substr(preg_replace('/[^A-Za-z0-9]/','',(string)($profil['nama']??'U')),0,1))); ?></div><span class="badge bg-primary"><?= e($profil['peran']??'user'); ?></span></div><div class="col-md-9"><dl class="row mb-0"><dt class="col-sm-4">Nama</dt><dd class="col-sm-8"><?= e($profil['nama']??'-'); ?></dd><dt class="col-sm-4">Username</dt><dd class="col-sm-8"><?= e($profil['username']??'-'); ?></dd><dt class="col-sm-4">Peran</dt><dd class="col-sm-8 text-capitalize"><?= e($profil['peran']??'user'); ?></dd></dl><a href="edit.php" class="btn btn-primary mt-3"><i class="fas fa-pen me-1"></i>Edit Profil</a></div></div></div></div>
+</main></div></body></html>

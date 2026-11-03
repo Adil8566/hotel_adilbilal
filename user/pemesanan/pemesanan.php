@@ -92,7 +92,7 @@ $id_tamu_get = isset($_GET['id_tamu']) ? (int)$_GET['id_tamu'] : 0;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pemesanan - Grand Dian Hotel</title>
+    <title>Pemesanan - Sida Mulya Hotel</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="../../assets_mantis/css/mantis-hotel.css">
@@ -107,7 +107,10 @@ $id_tamu_get = isset($_GET['id_tamu']) ? (int)$_GET['id_tamu'] : 0;
 <body class="bg-light">
 <nav class="navbar navbar-light mantis-topbar">
     <div class="container-fluid">
-        <a href="../index.php" class="navbar-brand"><i class="fas fa-hotel me-2"></i>Admin Grand Dian Hotel Bumiayu</a>
+        <a href="../index.php" class="navbar-brand">
+            
+
+            </i>SIDA MULYA HOTEL BUMIAYU</a>
         <div class="text-white"><span class="me-3"><i class="fas fa-user me-1"></i><?= e($_SESSION['nama'] ?? 'Admin'); ?></span><a href="../../logout.php" class="btn btn-outline-light btn-sm">Logout</a></div>
     </div>
 </nav>
@@ -191,24 +194,22 @@ $id_tamu_get = isset($_GET['id_tamu']) ? (int)$_GET['id_tamu'] : 0;
                         <div class="card h-100 kotak-tipe <?= $is_full ? 'border-secondary opacity-75' : 'border-primary' ?>">
                             
                             <!-- BAGIAN YANG DITAMBAHKAN: Foto Kamar -->
-                            <?php 
+                           <?php 
                                 // Menyesuaikan gambar secara otomatis berdasarkan nama kamar
                                 $nama_tipe = strtolower($tipe['nama_tipe']);
-                                $file_foto = 'hotel1.jpg'; // Gambar default jika tidak ada yang cocok
+                                $file_foto = 'kamar standard.jpeg'; // Gambar default
                                 
-                                if (strpos($nama_tipe, 'moderate') !== false) {
-                                    $file_foto = 'hotel1.jpg';
+                                if (strpos($nama_tipe, 'standard') !== false) {
+                                    $file_foto = 'kamar standard.jpeg';
                                 } elseif (strpos($nama_tipe, 'superior') !== false) {
-                                    $file_foto = 'hotel2.jpg';
-                                } elseif (strpos($nama_tipe, 'deluxe') !== false) {
-                                    $file_foto = 'hotel3.jpg';
+                                    $file_foto = 'kamar superior.jpeg';
                                 }
                             ?>
-                            <img src="../../assets_volt/img/<?= $file_foto; ?>" 
+                            <img src="../../assets_volt/img/<?= rawurlencode($file_foto); ?>" 
                                  class="card-img-top" 
                                  alt="<?= e($tipe['nama_tipe']); ?>" 
                                  style="height: 160px; object-fit: cover; border-top-left-radius: 11px; border-top-right-radius: 11px;"
-                                 onerror="this.src='../../assets_volt/img/hotel1.jpg';">
+                                 onerror="this.src='../../assets_volt/img/kamar standard.jpeg';">
                             <!-- AKHIR PENAMBAHAN -->
 
                             <div class="card-body text-center">

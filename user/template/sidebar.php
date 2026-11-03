@@ -20,9 +20,9 @@ $logo = ($user_url ? dirname($user_url) : '..') . '/assets_volt/img/logo hotel 2
 <aside class="mantis-sidebar">
     <div class="mantis-sidebar-inner">
         <a class="mantis-brand" href="<?= htmlspecialchars($user_url . '/index.php', ENT_QUOTES, 'UTF-8'); ?>">
-            <img src="<?= htmlspecialchars($logo, ENT_QUOTES, 'UTF-8'); ?>" alt="Grand Dian Hotel">
+            <img src="<?= htmlspecialchars($user_url ? dirname($user_url) . '/assets_volt/img/logo hotel 2.png' : '../assets_volt/img/logo hotel 2.png', ENT_QUOTES, 'UTF-8'); ?>" alt="Sida Mulya Hotel">
             <div class="mantis-brand-title">
-                <strong>Grand Dian Hotel</strong>
+                <strong>Sida Mulya Hotel</strong>
                 <span>Portal User</span>
             </div>
         </a>

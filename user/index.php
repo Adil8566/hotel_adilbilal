@@ -42,7 +42,7 @@ $upcoming = mysqli_query($con, "
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard User - Grand Dian Hotel</title>
+<title>Dashboard User - Sida Mulya Hotel</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="../assets_mantis/css/mantis-hotel.css">
@@ -56,7 +56,10 @@ $upcoming = mysqli_query($con, "
 <body class="bg-light">
 <nav class="navbar navbar-light mantis-topbar">
     <div class="container-fluid">
-        <a href="index.php" class="navbar-brand"><i class="fas fa-hotel me-2"></i>Grand Dian Hotel Bumiayu</a>
+        <a href="index.php" class="navbar-brand">
+            
+
+            </i>SIDA MULYA HOTEL BUMIAYU</a>
         <div><span class="me-3 small text-white"><i class="fas fa-user me-1"></i><?= e($nama_user); ?></span><a href="../logout.php" class="btn btn-sm btn-outline-light">Logout</a></div>
     </div>
 </nav>

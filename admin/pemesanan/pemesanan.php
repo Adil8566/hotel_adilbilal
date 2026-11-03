@@ -107,7 +107,10 @@ $id_tamu_get = isset($_GET['id_tamu']) ? (int)$_GET['id_tamu'] : 0;
 <body class="bg-light">
 <nav class="navbar navbar-light mantis-topbar">
     <div class="container-fluid">
-        <a href="../index.php" class="navbar-brand"><i class="fas fa-hotel me-2"></i>Admin Grand Dian Hotel Bumiayu</a>
+        <a href="../index.php" class="navbar-brand">
+            
+
+            </i>SIDA MULYA HOTEL BUMIAYU</a>
         <div class="text-white"><span class="me-3"><i class="fas fa-user me-1"></i><?= e($_SESSION['nama'] ?? 'Admin'); ?></span><a href="../../logout.php" class="btn btn-outline-light btn-sm">Logout</a></div>
     </div>
 </nav>

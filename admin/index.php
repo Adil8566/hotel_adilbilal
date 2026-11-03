@@ -43,7 +43,7 @@ $maintenance_pct = $total_kamar > 0 ? round(($kamar_maintenance / $total_kamar) 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Admin - Grand Dian Hotel</title>
+    <title>Dashboard Admin - SIDA MULYA HOTEL</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="../assets_mantis/css/mantis-hotel.css">
@@ -51,7 +51,7 @@ $maintenance_pct = $total_kamar > 0 ? round(($kamar_maintenance / $total_kamar) 
 <body>
 <nav class="navbar navbar-light mantis-topbar">
     <div class="container-fluid">
-        <a href="index.php" class="navbar-brand"><i class=""></i>Grand Dian Hotel Bumiayu</a>
+        <a href="index.php" class="navbar-brand"><i class=""></i>SIDA MULYA HOTEL BUMIAYU</a>
         <div>
             <span class="me-3 small"><i class="fas fa-user me-1"></i><?= e($_SESSION['nama'] ?? 'Admin'); ?></span>
             <a href="../logout.php" class="btn btn-sm btn-outline-secondary">Logout</a>
@@ -235,7 +235,7 @@ $maintenance_pct = $total_kamar > 0 ? round(($kamar_maintenance / $total_kamar) 
             </div>
         </div>
 
-        <div class="dashboard-footer">Grand Dian Hotel Bumiayu &middot; Administrasi</div>
+        <div class="dashboard-footer">Sida Mulya Hotel Bumiayu &middot; Administrasi</div>
     </main>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

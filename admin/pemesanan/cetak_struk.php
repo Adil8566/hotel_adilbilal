@@ -47,10 +47,10 @@ $pdf->AddPage();
 
 // Header Hotel
 $pdf->SetFont('Arial', 'B', 14);
-$pdf->Cell(0, 7, 'GRAND DIAN HOTEL BUMIAYU', 0, 1, 'C');
+$pdf->Cell(0, 7, 'SIDA MULYA HOTEL BUMIAYU', 0, 1, 'C');
 $pdf->SetFont('Arial', '', 10);
 $pdf->Cell(0, 5, 'Jl. Raya Bumiayu - Tegal, Brebes, Jawa Tengah', 0, 1, 'C');
-$pdf->Cell(0, 5, 'Telp: (0289) 1234567 | Email: info@granddianbumiayu.com', 0, 1, 'C');
+$pdf->Cell(0, 5, 'Telp: (0289) 1234567 | Email: info@sidamulyabumiayu.com', 0, 1, 'C');
 
 // Garis Pemisah
 $pdf->SetLineWidth(0.5);

@@ -78,10 +78,10 @@ function tanggalIndonesia($tanggal): string
 
 $pdf = new SimplePDF();
 
-// Header PDF dengan logo Grand Dian Hotel di samping judul.
+// Header PDF dengan logo SIDA MULYA HOTEL di samping judul.
 $logoPath = __DIR__ . '/../../assets_volt/img/logo hotel 2.jpg';
 $pdf->image($logoPath, 70, 18, 58, 58);
-$pdf->text(180, 42, 'GRAND DIAN HOTEL', 20, true);
+$pdf->text(180, 42, 'SIDA MULYA HOTEL', 20, true);
 $pdf->text(195, 63, 'BUKTI PEMESANAN KAMAR', 12, true);
 $pdf->line(42, 90, 553, 90, 1.5);
 
@@ -113,7 +113,7 @@ $pdf->labelValue(618, 'Sisa Pembayaran', rupiah($sisaPembayaran));
 $pdf->labelValue(640, 'Status Pembayaran', $statusPembayaran);
 
 $pdf->line(50, 690, 545, 690, 1.2); // Posisi Y diturunkan menyesuaikan kotak
-$pdf->centered(720, 'Terima kasih telah memilih Grand Dian Hotel.', 10, false); // Posisi Y diturunkan menyesuaikan kotak
+$pdf->centered(720, 'Terima kasih telah memilih SIDA MULYA HOTEL.', 10, false); // Posisi Y diturunkan menyesuaikan kotak
 $pdf->centered(739, 'Simpan bukti ini sebagai bukti pemesanan.', 10, false); // Posisi Y diturunkan menyesuaikan kotak
 
 $pdf->output('Bukti-Pemesanan-' . $data['kode_booking'] . '.pdf');

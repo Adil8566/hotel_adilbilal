@@ -6,7 +6,7 @@ if($id_booking<=0){die('ID booking tidak valid.');}
 $q=mysqli_query($con,"SELECT b.*,t.nama,t.no_identitas,t.no_hp,t.email,t.alamat,k.nomor_kamar,tk.nama_tipe,COALESCE((SELECT SUM(p.jumlah_bayar) FROM tbl_pembayaran p WHERE p.id_booking=b.id_booking),0) terbayar FROM tbl_booking b INNER JOIN tbl_tamu t ON b.id_tamu=t.id_tamu INNER JOIN tbl_kamar k ON b.id_kamar=k.id_kamar INNER JOIN tbl_tipe_kamar tk ON k.id_tipe=tk.id_tipe WHERE b.id_booking={$id_booking} AND b.id_pengguna={$id_user} LIMIT 1");
 $data=$q?mysqli_fetch_assoc($q):null; if(!$data){http_response_code(404);die('Pemesanan tidak ditemukan.');}
 $pdf=new SimplePDF();
-$pdf->text(42,60,'GRAND DIAN HOTEL BUMIAYU',16,true);
+$pdf->text(42,60,'SIDA MULYA HOTEL BUMIAYU',16,true);
 $pdf->text(42,82,'BUKTI PEMESANAN',12,true);
 $pdf->line(42,92,553,92);
 $y=120;

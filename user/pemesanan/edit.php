@@ -63,7 +63,9 @@ if(isset($_POST['btn_edit'])){
 <body class="bg-light">
     <nav class="navbar navbar-light mantis-topbar">
         <div class="container-fluid">
-            <a href="pemesanan.php" class="navbar-brand"><i class="fas fa-hotel me-2"></i>Grand Dian Hotel</a>
+            <a href="pemesanan.php" class="navbar-brand">
+                
+                </i>Sida Mulya Hotel</a>
             <a href="../../logout.php" class="btn btn-outline-light btn-sm">Logout</a>
         </div>
     </nav>

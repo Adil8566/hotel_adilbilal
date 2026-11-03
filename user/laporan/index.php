@@ -23,8 +23,8 @@ $rows=[];$total_booking=0;$nilai=0;$bayar=0;if($list){while($r=mysqli_fetch_asso
     <nav class="navbar navbar-light mantis-topbar">
         <div class="container-fluid">
             <a href="../index.php" class="navbar-brand">
-                <i class="fas fa-hotel me-2">
-                </i>Grand Dian Hotel Bumiayu</a>
+                
+                </i>SIDA MULYA HOTEL BUMIAYU</a>
                 <div class="text-white">
                     <span class="me-3">
                         <i class="fas fa-user me-1">

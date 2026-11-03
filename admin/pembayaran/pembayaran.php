@@ -29,9 +29,9 @@ $list=mysqli_query($con,"SELECT b.id_booking,b.kode_booking,b.total,t.nama,k.nom
     <nav class="navbar navbar-light mantis-topbar">
         <div class="container-fluid">
             <a href="../index.php" class="navbar-brand">
-                <i class="fas fa-hotel me-2">
+                
 
-                </i>Hotel Admin</a>
+                </i>SIDA MULYA HOTEL BUMIAYU</a>
                 <a href="../../logout.php" class="btn btn-outline-light btn-sm">Logout</a>
             </div>
         </nav>

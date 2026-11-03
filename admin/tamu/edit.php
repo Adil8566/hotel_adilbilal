@@ -107,16 +107,11 @@ if (isset($_POST['btn_edit'])) {
 
 <body class="bg-light">
 
-<nav class="navbar navbar-dark bg-primary">
-
+<nav class="navbar navbar-light mantis-topbar">
     <div class="container-fluid">
-
-        <a href="../index.php"
-           class="navbar-brand">
-
+        <a href="index.php" class="navbar-brand">
             <i class="fas fa-hotel"></i>
             Hotel Admin
-
         </a>
 
         <a href="../../logout.php"

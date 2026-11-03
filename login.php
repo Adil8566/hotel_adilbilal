@@ -128,7 +128,7 @@ if (isset($_GET['error'])) {
 
                 <div class="text-center mb-5">
                     <img src="assets_volt/img/logo hotel 2.png" alt="Logo Hotel" style="width: 80px; margin-bottom: 15px;">
-                    <h5 class="fw-bold mb-1">MANAJEMEN Sida Mulia Hotel BUMIAYU</h5>
+                    <h5 class="fw-bold mb-1">MANAJEMEN SIDA MULYA HOTEL BUMIAYU</h5>
                     <p class="text-muted small">KABUPATEN BREBES</p>
                 </div>
 
@@ -179,7 +179,7 @@ if (isset($_GET['error'])) {
                 </div>
 
                 <div class="text-center mt-5">
-                    <h3 class="text-success" style="font-family: inherit; margin-bottom: 0; font-weight: 800;">Sida Mulia Hotel</h3>
+                    <h3 class="text-success" style="font-family: inherit; margin-bottom: 0; font-weight: 800;">Sida Mulya Hotel</h3>
                     <p class="small text-muted mt-1">Copyright © Manajemen Hotel 2026</p>
                 </div>
 

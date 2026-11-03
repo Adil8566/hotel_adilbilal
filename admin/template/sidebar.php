@@ -15,9 +15,9 @@ $is = static function (string $needle) use ($script_path): bool {
 <aside class="mantis-sidebar">
     <div class="mantis-sidebar-inner">
         <a class="mantis-brand" href="<?= htmlspecialchars($admin_url . '/index.php', ENT_QUOTES, 'UTF-8'); ?>">
-            <img src="<?= htmlspecialchars($admin_url ? dirname($admin_url) . '/assets_volt/img/logo hotel 2.jpg' : '../assets_volt/img/logo hotel 2.jpg', ENT_QUOTES, 'UTF-8'); ?>" alt="Grand Dian Hotel">
+            <img src="<?= htmlspecialchars($admin_url ? dirname($admin_url) . '/assets_volt/img/logo hotel 2.png' : '../assets_volt/img/logo hotel 2.png', ENT_QUOTES, 'UTF-8'); ?>" alt="Sida Mulya Hotel">
             <div class="mantis-brand-title">
-                <strong>Grand Dian Hotel</strong>
+                <strong>Sida Mulya Hotel</strong>
                 <span>Panel Administrasi</span>
             </div>
         </a>

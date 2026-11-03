@@ -23,7 +23,10 @@ $total_booking=0;$nilai_booking=0;$pembayaran=0;$sisa=0;$rows=[]; if($list){whil
 <body class="bg-light">
     <nav class="navbar navbar-light mantis-topbar no-print">
         <div class="container-fluid">
-            <a href="../index.php" class="navbar-brand"><i class="fas fa-hotel me-2"></i>Hotel Admin</a>
+            <a href="../index.php" class="navbar-brand">
+                
+
+                </i>SIDA MULYA HOTEL BUMIAYU</a>
             <a href="../../logout.php" class="btn btn-outline-light btn-sm">Logout</a>
         </div>
     </nav>

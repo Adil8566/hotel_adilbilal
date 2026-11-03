@@ -39,8 +39,8 @@ if (isset($_GET['cari']) && !empty(trim($_GET['cari']))) {
 <nav class="navbar navbar-light mantis-topbar">
     <div class="container-fluid">
         <a href="index.php" class="navbar-brand">
-            <i class="fas fa-hotel"></i>
-            Hotel Admin
+            
+            SIDA MULYA HOTEL BUMIAYU
         </a>
         <div class="text-white">
             <span class="me-3">

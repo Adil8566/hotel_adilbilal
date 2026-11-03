@@ -25,7 +25,7 @@ if (isset($_GET['cari']) && !empty(trim($_GET['cari']))) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tipe Kamar - Grand Dian Hotel</title>
+    <title>Tipe Kamar - Sida Mulya Hotel</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="../../assets_mantis/css/mantis-hotel.css">
@@ -36,8 +36,8 @@ if (isset($_GET['cari']) && !empty(trim($_GET['cari']))) {
 <nav class="navbar navbar-light mantis-topbar bg-white shadow-sm">
     <div class="container-fluid">
         <a href="../index.php" class="navbar-brand text-primary fw-bold">
-            <i class="fas fa-hotel"></i>
-            Grand Dian Hotel Bumiayu
+            
+            SIDA MULYA HOTEL BUMIAYU
         </a>
         <div class="text-dark">
             <span class="me-3">

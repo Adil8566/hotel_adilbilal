@@ -104,29 +104,97 @@ if (isset($_POST['btn-tambah'])) {
 ?>
 <!DOCTYPE html>
 <html lang="id">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Pesan Kamar - Grand Dian Hotel</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><link rel="stylesheet" href="../../assets_mantis/css/mantis-hotel.css"></head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Kamar - Sida Mulya Hotel</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../../assets_mantis/css/mantis-hotel.css">
+</head>
 <body class="bg-light">
-<nav class="navbar navbar-light mantis-topbar"><div class="container-fluid"><a href="pemesanan.php" class="navbar-brand"><i class="fas fa-hotel me-2"></i>Grand Dian Hotel</a><a href="../../logout.php" class="btn btn-outline-light btn-sm">Logout</a></div></nav>
-<div class="d-flex"><?php include '../template/sidebar.php'; ?><main class="flex-grow-1 p-4">
-<div class="card shadow-sm border-0"><div class="card-header bg-white"><h5 class="mb-0">Pesan <?= e($nama_tipe); ?></h5></div><div class="card-body">
-<?php if($error): ?><div class="alert alert-danger"><i class="fas fa-circle-exclamation me-1"></i><?= e($error); ?></div><?php endif; ?>
-<div class="alert alert-info"><strong><?= e($nama_tipe); ?></strong> · <?= rupiah($harga_tipe); ?> / malam. Sistem akan menyesuaikan harga secara otomatis berdasarkan tanggal dan memilih kamar yang tidak bentrok dengan booking aktif.</div>
-<form method="POST"><input type="hidden" name="id_tipe" value="<?= $id_tipe_get; ?>">
-<div class="row g-3">
-<div class="col-md-6"><label class="form-label">Nama Tamu</label><input name="nama" class="form-control" value="<?= e($old['nama']); ?>" required></div>
-<div class="col-md-6"><label class="form-label">No. HP</label><input name="no_hp" class="form-control" value="<?= e($old['no_hp']); ?>" required></div>
-<div class="col-md-6"><label class="form-label">No. Identitas</label><input name="no_identitas" class="form-control" value="<?= e($old['no_identitas']); ?>"></div>
-<div class="col-md-6"><label class="form-label">Email</label><input type="email" name="email" class="form-control" value="<?= e($old['email']); ?>"></div>
-<div class="col-12"><label class="form-label">Alamat</label><textarea name="alamat" class="form-control" rows="2"><?= e($old['alamat']); ?></textarea></div>
-<div class="col-md-4"><label class="form-label">Check-in</label><input type="date" name="check_in" id="input_ci" class="form-control" value="<?= e($old['check_in']); ?>" min="<?= date('Y-m-d'); ?>" required></div>
-<div class="col-md-4"><label class="form-label">Check-out</label><input type="date" name="check_out" id="input_co" class="form-control" value="<?= e($old['check_out']); ?>" min="<?= date('Y-m-d'); ?>" required></div>
-<div class="col-md-4"><label class="form-label">Jumlah Tamu</label><input type="number" name="jumlah_tamu" class="form-control" value="<?= (int)$old['jumlah_tamu']; ?>" min="1" required></div>
+<nav class="navbar navbar-light mantis-topbar">
+    <div class="container-fluid">
+        <a href="pemesanan.php" class="navbar-brand">
+
+            </i>Sida Mulya Hotel</a>
+            <a href="../../logout.php" 
+            class="btn btn-outline-light btn-sm">Logout</a>
+        </div>
+    </nav>
+    <div class="d-flex">
+    <?php include '../template/sidebar.php'; ?>
+    <main class="flex-grow-1 p-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-white">
+            <h5 class="mb-0">Pesan <?= e($nama_tipe); ?>
+        </h5>
+    </div>
+    <div class="card-body">
+    <?php if($error): ?>
+        <div class="alert alert-danger">
+            <i class="fas fa-circle-exclamation me-1">
+
+            </i>
+            <?= e($error); ?>
+        </div>
+        <?php endif; ?>
+    <div class="alert alert-info">
+        <strong><?= e($nama_tipe); ?>
+    </strong> · <?= rupiah($harga_tipe); ?> / malam. Sistem akan menyesuaikan harga secara otomatis berdasarkan tanggal dan memilih kamar yang tidak bentrok dengan booking aktif.</div>
+    <form method="POST">
+        <input type="hidden" name="id_tipe" value="<?= $id_tipe_get; ?>">
+    <div class="row g-3">
+    <div class="col-md-6">
+        <label class="form-label">Nama Tamu</label>
+        <input name="nama" class="form-control" value="<?= e($old['nama']); ?>" required>
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">No. HP</label>
+        <input name="no_hp" class="form-control" value="<?= e($old['no_hp']); ?>" required>
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">No. Identitas</label>
+        <input name="no_identitas" class="form-control" value="<?= e($old['no_identitas']); ?>">
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" value="<?= e($old['email']); ?>">
+    </div>
+    <div class="col-12">
+        <label class="form-label">Alamat</label>
+        <textarea name="alamat" class="form-control" rows="2"><?= e($old['alamat']); ?></textarea>
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Check-in</label>
+        <input type="date" name="check_in" id="input_ci" class="form-control" value="<?= e($old['check_in']); ?>" min="<?= date('Y-m-d'); ?>" required>
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Check-out</label>
+        <input type="date" name="check_out" id="input_co" class="form-control" value="<?= e($old['check_out']); ?>" min="<?= date('Y-m-d'); ?>" required>
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Jumlah Tamu</label>
+        <input type="number" name="jumlah_tamu" class="form-control" value="<?= (int)$old['jumlah_tamu']; ?>" min="1" required>
+    </div>
 </div>
-<div class="alert alert-warning mt-3 mb-0" id="estimasi_harga" style="display:none;"></div>
-<div class="alert alert-secondary small mt-3 mb-0">Status awal pemesanan adalah <strong>Pending</strong>. Setelah diverifikasi petugas, status akan berubah menjadi Dikonfirmasi.</div>
-<div class="mt-4"><button type="submit" name="btn-tambah" class="btn btn-primary"><i class="fas fa-save me-1"></i>Simpan Booking</button><a href="pemesanan.php" class="btn btn-secondary ms-2">Kembali</a></div>
-</form></div></div>
-</main></div>
+<div class="alert alert-warning mt-3 mb-0" id="estimasi_harga" style="display:none;">
+
+</div>
+<div class="alert alert-secondary small mt-3 mb-0">Status awal pemesanan adalah <strong>Pending</strong>. Setelah diverifikasi petugas, status akan berubah menjadi Dikonfirmasi.
+</div>
+<div class="mt-4">
+    <button type="submit" name="btn-tambah" class="btn btn-primary">
+        <i class="fas fa-save me-1">
+
+        </i>Simpan Booking</button>
+        <a href="pemesanan.php" class="btn btn-secondary ms-2">Kembali</a>
+    </div>
+    </form>
+</div>
+</div>
+</main>
+</div>
 <script>
 function hitungEstimasiHarga() {
     let ci = document.getElementById('input_ci').value;
@@ -168,4 +236,5 @@ document.getElementById('input_ci').addEventListener('change', hitungEstimasiHar
 document.getElementById('input_co').addEventListener('change', hitungEstimasiHarga);
 window.onload = hitungEstimasiHarga;
 </script>
-</body></html>
+</body>
+</html>

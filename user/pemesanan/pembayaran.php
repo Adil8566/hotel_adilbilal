@@ -21,11 +21,66 @@ $sync_status=$sp==='Lunas'?'lunas':'belum_lunas';
 @mysqli_query($con,"UPDATE tbl_pembayaran SET status='{$sync_status}' WHERE id_booking={$id_booking}");
 $riwayat=mysqli_query($con,"SELECT tanggal_bayar,jumlah_bayar,metode,status FROM tbl_pembayaran WHERE id_booking={$id_booking} ORDER BY id_pembayaran DESC");
 ?>
-<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Pembayaran - Grand Dian Hotel</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><link rel="stylesheet" href="../../assets_mantis/css/mantis-hotel.css"></head>
-<body class="bg-light"><nav class="navbar navbar-light mantis-topbar"><div class="container-fluid"><a href="pemesanan.php" class="navbar-brand"><i class="fas fa-hotel me-2"></i>Grand Dian Hotel</a><a href="../../logout.php" class="btn btn-outline-light btn-sm">Logout</a></div></nav><div class="d-flex"><?php include '../template/sidebar.php'; ?><main class="flex-grow-1 p-4">
-<div class="mb-4"><h3>Pembayaran Pemesanan</h3><p class="text-muted mb-0"><?= e($data['kode_booking']); ?> · <?= e($data['nama_tamu']); ?> · Kamar <?= e($data['nomor_kamar']); ?></p></div>
-<?php if(($_GET['pesan']??'')==='bayar'): ?><div class="alert alert-success">Pembayaran berhasil dicatat.</div><?php endif; ?><?php if($error): ?><div class="alert alert-danger"><?= e($error); ?></div><?php endif; ?>
-<div class="row g-4"><div class="col-lg-5"><div class="card shadow-sm border-0"><div class="card-body"><div class="row g-3 mb-3"><div class="col-4"><small class="text-muted">Total</small><div class="fw-bold"><?= rupiah($data['total']); ?></div></div><div class="col-4"><small class="text-muted">Terbayar</small><div class="fw-bold text-success"><?= rupiah($terbayar); ?></div></div><div class="col-4"><small class="text-muted">Sisa</small><div class="fw-bold text-danger"><?= rupiah($sisa); ?></div></div></div><span class="badge <?= status_pembayaran_badge($sp); ?> mb-3"><?= e($sp); ?></span>
-<?php if($sisa>0 && !in_array($state,['dibatalkan','checkout'],true)): ?><form method="POST"><div class="mb-3"><label class="form-label">Jumlah Bayar</label><input type="number" name="jumlah_bayar" class="form-control" min="1" max="<?= $sisa; ?>" value="<?= $sisa; ?>" required></div><div class="mb-3"><label class="form-label">Metode Pembayaran</label><select name="metode" class="form-select"><option>Transfer</option><option>QRIS</option><option>Cash</option><option>Debit</option><option>Kartu Kredit</option></select></div><div class="alert alert-info small">Pencatatan ini merupakan informasi pembayaran pada sistem. Untuk pembayaran transfer/QRIS, simpan bukti transaksi Anda.</div><button name="simpan_pembayaran" class="btn btn-warning w-100"><i class="fas fa-save me-1"></i>Simpan Pembayaran</button></form><?php else: ?><div class="alert alert-success mb-0"><?= $sisa<=0?'Tagihan sudah lunas.':'Pembayaran tidak tersedia untuk status booking ini.'; ?></div><?php endif; ?><a href="detail.php?id=<?= $id_booking; ?>" class="btn btn-secondary w-100 mt-2">Kembali ke Detail</a></div></div></div>
-<div class="col-lg-7"><div class="card shadow-sm border-0"><div class="card-header bg-white"><h5 class="mb-0">Riwayat Pembayaran</h5></div><div class="card-body"><div class="table-responsive"><table class="table table-bordered align-middle"><thead class="table-light"><tr><th>No</th><th>Tanggal</th><th>Metode</th><th>Jumlah</th><th>Status</th></tr></thead><tbody><?php $no=1;if($riwayat&&mysqli_num_rows($riwayat)>0):while($p=mysqli_fetch_assoc($riwayat)): ?><tr><td><?= $no++; ?></td><td><?= tanggal_id($p['tanggal_bayar']); ?><br><small><?= date('H:i',strtotime($p['tanggal_bayar'])); ?></small></td><td><?= e($p['metode']); ?></td><td><?= rupiah($p['jumlah_bayar']); ?></td><td><span class="badge <?= $p['status']==='lunas'?'bg-success':'bg-warning text-dark'; ?>"><?= e($p['status']?:'belum_lunas'); ?></span></td></tr><?php endwhile;else:?><tr><td colspan="5" class="text-center text-muted">Belum ada pembayaran.</td></tr><?php endif; ?></tbody></table></div></div></div></div></div>
-</main></div></body></html>
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Pembayaran - Grand Dian Hotel</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="stylesheet" href="../../assets_mantis/css/mantis-hotel.css">
+    </head>
+<body class="bg-light">
+    <nav class="navbar navbar-light mantis-topbar">
+        <div class="container-fluid">
+            <a href="pemesanan.php" class="navbar-brand">
+                <i class="fas fa-hotel me-2"></i>Grand Dian Hotel
+            </a>
+            <a href="../../logout.php" class="btn btn-outline-light btn-sm">Logout</a>
+        </div>
+    </nav>
+    <div class="d-flex">
+        <?php include '../template/sidebar.php'; ?>
+        <main class="flex-grow-1 p-4">
+    <div class="col-lg-7">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-white">
+                <h5 class="mb-0">Riwayat Pembayaran</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>No</th>
+                                <th>Tanggal</th>
+                                <th>Metode</th>
+                                <th>Jumlah</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no=1;if($riwayat&&mysqli_num_rows($riwayat)>0):while($p=mysqli_fetch_assoc($riwayat)): ?>
+                            <tr>
+                                <td><?= $no++; ?></td>
+                                <td><?= tanggal_id($p['tanggal_bayar']); ?><br><small><?= date('H:i',strtotime($p['tanggal_bayar'])); ?></small></td>
+                                <td><?= e($p['metode']); ?></td>
+                                <td><?= rupiah($p['jumlah_bayar']); ?></td>
+                                <td><span class="badge <?= $p['status']==='lunas'?'bg-success':'bg-warning text-dark'; ?>"><?= e($p['status']?:'belum_lunas'); ?></span></td>
+                            </tr>
+                            <?php endwhile;else:?>
+                            <tr>
+                                <td colspan="5" class="text-center text-muted">Belum ada pembayaran.</td>
+                            </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</div>
+</body>
+</html>

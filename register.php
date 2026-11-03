@@ -95,7 +95,7 @@ if (isset($_POST['register'])) {
 <div class="card shadow-none border-0 p-4" style="width: 100%; max-width: 450px;">
     
     <div class="text-center mb-4">
-        <h6 class="fw-bold" style="letter-spacing: 1px;">MANAJEMEN GRAND DIAN HOTEL<br>BUMIAYU</h6>
+        <h6 class="fw-bold" style="letter-spacing: 1px;">MANAJEMEN Sida Mulia Hotel<br>BUMIAYU</h6>
         <p class="text-muted small" style="font-size: 13px; letter-spacing: 0.5px;">KABUPATEN BREBES</p>
         
         <hr class="mt-4 mb-3">
@@ -144,7 +144,7 @@ if (isset($_POST['register'])) {
     <div class="text-center mt-4">
         <p class="text-muted small mb-3">Sudah punya akun? <a href="login.php" class="text-danger text-decoration-none fw-bold">Masuk</a></p>
         
-        <h6 class="fw-bold text-danger mb-1" style="font-size: 16px;">GRAND DIAN HOTEL</h6>
+        <h6 class="fw-bold text-danger mb-1" style="font-size: 16px;">Sida Mulia Hotel</h6>
         <p class="text-muted small" style="font-size: 11px;">Copyright &copy; Manajemen Hotel 2026</p>
     </div>
 </div>

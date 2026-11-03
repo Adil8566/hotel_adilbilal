@@ -62,17 +62,15 @@ if ($qRooms) {
 }
 
 $roomImages = [
-    'Moderate Room' => 'hotel1.jpg',
-    'Superior Room' => 'hotel2.jpg',
-    'Deluxe Room' => 'hotel3.jpg',
-    'Villa Superior' => 'hotel1.jpg',
-    'Villa Deluxe' => 'hotel2.jpg',
+    'Standard Room' => 'kamar standard.jpeg',
+    'Superior Room' => 'kamar superior.jpeg',
+    
 ];
 
-$defaultImages = ['hotel1.jpg', 'hotel2.jpg', 'hotel3.jpg'];
+$defaultImages = ['kamar superior.jpeg', 'kamar superior.jpeg'];
 
-$heroImage = 'assets_volt/img/hotel1.jpg';
-$logoImage = 'assets_volt/img/logo hotel 2.jpg';
+$heroImage = 'assets_volt/img/wallpaper hotel.png';
+$logoImage = 'assets_volt/img/logo hotel 2.png';
 $loginUrl = 'login.php';
 ?>
 <!DOCTYPE html>
@@ -80,8 +78,8 @@ $loginUrl = 'login.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grand Dian Hotel Bumiayu | Informasi & Reservasi</title>
-    <meta name="description" content="Landing page Grand Dian Hotel Bumiayu dengan informasi tipe kamar, fasilitas, akses login, dan pemesanan.">
+    <title>Sida Mulia Hotel | Informasi & Reservasi</title>
+    <meta name="description" content="Landing page Sida Mulia Hotel Bumiayu dengan informasi tipe kamar, fasilitas, akses login, dan pemesanan.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,14 +117,14 @@ $loginUrl = 'login.php';
 
 <div id="preloader" aria-hidden="true">
     <div class="preload-ring"><i class="bi bi-building preload-heart"></i></div>
-    <div class="preload-text">MEMUAT GRAND DIAN HOTEL&hellip;</div>
+    <div class="preload-text">MEMUAT Sida Mulia Hotel&hellip;</div>
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-hw" id="mainNav">
     <div class="container">
-        <a class="hw-logo d-flex align-items-center gap-2" href="#home" aria-label="Grand Dian Hotel">
-            <img src="<?= landing_e($logoImage); ?>" alt="Logo Grand Dian Hotel" class="hotel-brand-logo">
-            <span class="hotel-brand-text">Grand Dian <span>Hotel</span></span>
+        <a class="hw-logo d-flex align-items-center gap-2" href="#home" aria-label="Sida Mulia Hotel">
+            <img src="<?= landing_e($logoImage); ?>" alt="Logo Sida Mulia Hotel" class="hotel-brand-logo">
+            <span class="hotel-brand-text">SIDA MULIA <span>Hotel</span></span>
         </a>
 
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Buka navigasi">
@@ -158,9 +156,9 @@ $loginUrl = 'login.php';
     <div class="container position-relative">
         <div class="row align-items-center g-5">
             <div class="col-lg-6" data-aos="fade-right">
-                <span class="eyebrow"><i class="bi bi-stars"></i> Grand Dian Hotel Bumiayu</span>
+                <span class="eyebrow"><i class="bi bi-stars"></i> Sida Mulia Hotel Bumiayu</span>
                 <h1 class="hero-title mt-4">Nikmati pengalaman <span class="accent-underline">menginap<svg viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 10 Q 50 2 100 8 T 198 6" stroke="#F59E0B" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span> dengan nyaman.</h1>
-                <p class="hero-lead mt-4">Di Prakata Grand Dian Hotel Bumiayu, kami bangga menyajikan sebuah destinasi penginapan yang menyatukan kenyamanan modern dengan keindahan estetika. Terletak di jantung kota Bumiayu, kami menyediakan pilihan akomodasi yang memikat bagi tamu-tamu kami.</p>
+                <p class="hero-lead mt-4">Di Prakata Sida Mulia Hotel Bumiayu, kami bangga menyajikan sebuah destinasi penginapan yang menyatukan kenyamanan modern dengan keindahan estetika. Terletak di jantung kota Bumiayu, kami menyediakan pilihan akomodasi yang memikat bagi tamu-tamu kami.</p>
                 <div class="d-flex flex-wrap gap-3 mt-4">
                     <a href="<?= landing_e($loginUrl); ?>" class="btn-hw-primary">Pesan Sekarang <i class="bi bi-arrow-right"></i></a>
                     <a href="#kamar" class="btn-hw-outline"><i class="bi bi-door-open"></i> Lihat Kamar</a>
@@ -177,7 +175,7 @@ $loginUrl = 'login.php';
             <div class="col-lg-6" data-aos="fade-left" data-aos-delay="120">
                 <div class="hero-media">
                     <div class="hero-media-frame">
-                        <img src="<?= landing_e($heroImage); ?>" alt="Grand Dian Hotel Bumiayu" loading="eager">
+                        <img src="<?= landing_e($heroImage); ?>" alt="Sida Mulia Hotel Bumiayu" loading="eager">
                     </div>
                     <div class="float-card float-card-1">
                         <span class="fc-icon"><i class="bi bi-door-open-fill"></i></span>
@@ -188,7 +186,7 @@ $loginUrl = 'login.php';
                         <div><div class="fc-val"><?= (int)$stats['tipe_kamar']; ?></div><div class="fc-label">Tipe kamar</div></div>
                     </div>
                 </div>
-                <div class="hero-image-label">Foto dari aset project: Grand Dian Hotel.</div>
+                <div class="hero-image-label">Foto dari aset project: Sida Mulia Hotel.</div>
             </div>
         </div>
     </div>
@@ -333,13 +331,13 @@ $loginUrl = 'login.php';
                             <div class="text-muted" style="font-size:.78rem;">Data dari sistem hotel</div>
                         </div>
                     </div>
-                    <div class="img-a"><img src="assets_volt/img/hotel2.jpg" alt="Interior hotel" loading="lazy"></div>
-                    <div class="img-b"><img src="assets_volt/img/hotel3.jpg" alt="Fasilitas hotel" loading="lazy"></div>
+                    <div class="img-a"><img src="assets_volt/img/wallpaper hotel.png" alt="Interior hotel" loading="lazy"></div>
+                    <div class="img-b"><img src="assets_volt/img/kamar superior.jpeg" alt="Fasilitas hotel" loading="lazy"></div>
                 </div>
             </div>
             <div class="col-lg-6" data-aos="fade-left">
                 <span class="eyebrow"><i class="bi bi-building-fill"></i> Tentang Sistem</span>
-                <h2 class="section-title mt-3 mb-3" style="font-size:clamp(1.7rem,3vw,2.4rem);">Satu halaman untuk memperkenalkan Grand Dian Hotel Bumiayu.</h2>
+                <h2 class="section-title mt-3 mb-3" style="font-size:clamp(1.7rem,3vw,2.4rem);">Satu halaman untuk memperkenalkan Sida Mulia Hotel Bumiayu.</h2>
                 <p class="section-sub">Landing page ini menjadi halaman publik sebelum pengunjung masuk ke sistem. Informasi tipe kamar ditampilkan dari database dan tombol Login mengarah ke sistem autentikasi yang sudah tersedia.</p>
                 <ul class="about-list mt-3">
                     <li><span class="ic"><i class="bi bi-database-check"></i></span><div><strong>Data terhubung database</strong><div class="text-muted small">Nama tipe kamar, harga, fasilitas, dan ketersediaan dibaca dari tabel hotel.</div></div></li>
@@ -388,9 +386,39 @@ $loginUrl = 'login.php';
             <p class="section-sub mx-auto mt-2"></p>
         </div>
         <div class="row g-4">
-            <div class="col-md-4" data-aos="fade-up"><div class="cause-card"><div class="cause-img" style="height:260px;"><img src="assets_volt/img/hotel1.jpg" alt="Grand Dian Hotel" loading="lazy"></div><div class="cause-body"><h5 class="font-display fw-bold mb-1">Grand Dian Hotel</h5><p class="text-muted small mb-0">Tampilan hotel dari aset project.</p></div></div></div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="80"><div class="cause-card"><div class="cause-img" style="height:260px;"><img src="assets_volt/img/hotel2.jpg" alt="Interior kamar hotel" loading="lazy"></div><div class="cause-body"><h5 class="font-display fw-bold mb-1">Interior Kamar</h5><p class="text-muted small mb-0">Contoh visual kamar hotel.</p></div></div></div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="160"><div class="cause-card"><div class="cause-img" style="height:260px;"><img src="assets_volt/img/hotel3.jpg" alt="Fasilitas hotel" loading="lazy"></div><div class="cause-body"><h5 class="font-display fw-bold mb-1">Fasilitas Hotel</h5><p class="text-muted small mb-0">Contoh visual fasilitas hotel.</p></div></div></div>
+            <div class="col-md-4" data-aos="fade-up">
+                <div class="cause-card">
+                    <div class="cause-img" style="height:260px;">
+                        <img src="assets_volt/img/wallpaper hotel.png" alt="Sida Mulia Hotel" loading="lazy">
+                    </div>
+                    <div class="cause-body">
+                        <h5 class="font-display fw-bold mb-1">Sida Mulia Hotel</h5>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
+                <div class="cause-card">
+                    <div class="cause-img" style="height:260px;">
+                        <img src="assets_volt/img/kamar superior.jpeg" alt="Interior kamar hotel" loading="lazy">
+                    </div>
+                    <div class="cause-body">
+                        <h5 class="font-display fw-bold mb-1">Interior Kamar</h5>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="160">
+                <div class="cause-card">
+                    <div class="cause-img" style="height:260px;">
+                        <img src="assets_volt/img/gambar tv.jpg" alt="Fasilitas hotel" loading="lazy">
+                    </div>
+                    <div class="cause-body">
+                        <h5 class="font-display fw-bold mb-1">Fasilitas Hotel</h5>
+                        
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -399,7 +427,7 @@ $loginUrl = 'login.php';
     <div class="container">
         <div class="cta-banner" data-aos="zoom-in">
             <i class="bi bi-building" style="font-size:2.4rem;"></i>
-            <h2 class="mt-3">Siap masuk ke sistem Grand Dian Hotel?</h2>
+            <h2 class="mt-3">Siap masuk ke sistem Sida Mulia Hotel?</h2>
             <p class="mb-4" style="opacity:.92;">Gunakan menu Login untuk masuk ke sistem yang sudah terhubung dengan database hotel.</p>
             <a href="<?= landing_e($loginUrl); ?>" class="btn-cta"><i class="bi bi-box-arrow-in-right me-2"></i>Login ke Sistem</a>
         </div>
@@ -416,10 +444,14 @@ $loginUrl = 'login.php';
         <div class="row g-4">
             <div class="col-lg-5 col-md-6">
                 <a class="hw-logo text-white d-inline-flex align-items-center gap-2" href="#home">
-                    <img src="<?= landing_e($logoImage); ?>" alt="Logo Grand Dian Hotel" class="hotel-brand-logo">
-                    <span>Grand Dian <span style="color:var(--clr-primary);">Hotel</span></span>
+                    <img src="<?= landing_e($logoImage); ?>" alt="Logo Sida Mulia Hotel" class="hotel-brand-logo">
+                    <span>Sida Mulia <span style="color:var(--clr-primary);">Hotel</span></span>
                 </a>
-                <p class="mt-3">Halaman publik Grand Dian Hotel Bumiayu yang menampilkan informasi kamar, fasilitas, galeri, serta akses menuju sistem hotel.</p>
+                <p class="mt-3">Nikmati kenyamanan menginap dengan fasilitas yang menunjang kebutuhan Anda. Temukan informasi kamar, fasilitas hotel, dan galeri kami untuk mengenal lebih dekat layanan Sida Mulia Hotel Bumiayu.
+
+                Kenyamanan Anda, Prioritas Kami.
+
+                Jelajahi informasi hotel dan lakukan pemesanan dengan mudah melalui sistem layanan kami.</p>
                 <div class="footer-badges">
                     <span class="footer-badge"><i class="bi bi-database-check"></i> Terhubung Database</span>
                     <span class="footer-badge"><i class="bi bi-shield-check"></i> Login Tersedia</span>
@@ -440,7 +472,7 @@ $loginUrl = 'login.php';
                 <h6>Informasi Sistem</h6>
                 <div class="footer-contact-item">
                     <span class="ic"><i class="bi bi-geo-alt-fill"></i></span>
-                    <span>Grand Dian Hotel Bumiayu, Kabupaten Brebes</span>
+                    <span>Sida Mulia Hotel Bumiayu, Kabupaten Brebes</span>
                 </div>
                 <div class="footer-contact-item">
                     <span class="ic"><i class="bi bi-door-open-fill"></i></span>
@@ -455,8 +487,8 @@ $loginUrl = 'login.php';
         </div>
         <div class="footer-divider"></div>
         <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3">
-            <div>&copy; <?= date('Y'); ?> Grand Dian Hotel Bumiayu. All rights reserved.</div>
-            <div>Manajemen Hotel berbasis PHP Native &amp; MariaDB</div>
+            <div>&copy; <?= date('Y'); ?> Sida Mulia Hotel Bumiayu.</div>
+            
         </div>
     </div>
 </footer>

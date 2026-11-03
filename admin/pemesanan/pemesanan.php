@@ -191,24 +191,25 @@ $id_tamu_get = isset($_GET['id_tamu']) ? (int)$_GET['id_tamu'] : 0;
                         <div class="card h-100 kotak-tipe <?= $is_full ? 'border-secondary opacity-75' : 'border-primary' ?>">
                             
                             <!-- BAGIAN YANG DITAMBAHKAN: Foto Kamar -->
+                           <!-- BAGIAN FOTO KAMAR -->
                             <?php 
                                 // Menyesuaikan gambar secara otomatis berdasarkan nama kamar
                                 $nama_tipe = strtolower($tipe['nama_tipe']);
-                                $file_foto = 'hotel1.jpg'; // Gambar default jika tidak ada yang cocok
+                                $file_foto = 'kamar standard.jpeg'; // Gambar default
                                 
-                                if (strpos($nama_tipe, 'moderate') !== false) {
-                                    $file_foto = 'hotel1.jpg';
+                                if (strpos($nama_tipe, 'standard') !== false) {
+                                    $file_foto = 'kamar standard.jpeg';
                                 } elseif (strpos($nama_tipe, 'superior') !== false) {
-                                    $file_foto = 'hotel2.jpg';
-                                } elseif (strpos($nama_tipe, 'deluxe') !== false) {
-                                    $file_foto = 'hotel3.jpg';
+                                    $file_foto = 'kamar superior.jpeg';
                                 }
                             ?>
-                            <img src="../../assets_volt/img/<?= $file_foto; ?>" 
+                            <img src="../../assets_volt/img/<?= rawurlencode($file_foto); ?>" 
                                  class="card-img-top" 
                                  alt="<?= e($tipe['nama_tipe']); ?>" 
                                  style="height: 160px; object-fit: cover; border-top-left-radius: 11px; border-top-right-radius: 11px;"
-                                 onerror="this.src='../../assets_volt/img/hotel1.jpg';">
+                                 onerror="this.src='../../assets_volt/img/kamar standard.jpeg';">
+                            
+                            <!-- AKHIR BAGIAN FOTO KAMAR -->
                             <!-- AKHIR PENAMBAHAN -->
 
                             <div class="card-body text-center">
@@ -269,31 +270,19 @@ $id_tamu_get = isset($_GET['id_tamu']) ? (int)$_GET['id_tamu'] : 0;
                             <td><?= tanggal_id($b['check_in']); ?></td><td><?= tanggal_id($b['check_out']); ?></td>
                             <td><?= rupiah($b['total']); ?></td>
                             <td><span class="badge <?= status_pembayaran_badge($ps); ?>"><?= $ps; ?></span><br><small><?= rupiah($sisa); ?> sisa</small></td>
-                            <td><span class="badge <?= status_booking_badge($st); ?>"><?= status_booking_label($st); ?></span></td>
-                            <td class="text-center no-print" style="min-width:180px">
-                                <!-- 1. Tombol Detail -->
-                                <a href="detail.php?id=<?= (int)$b['id_booking']; ?>" class="btn btn-sm btn-primary mb-1" title="Detail">
-                                    <i class="fas fa-eye"></i>
+                            <td><span class="badge <?= status_booking_badge($st); ?>"><?= status_booking_label($st); ?></span></td> 
+                            <td class="text-center no-print" style="min-width:140px">
+                                <!-- 1. Tombol Edit -->
+                                <a href="edit.php?id=<?= (int)$b['id_booking']; ?>" class="btn btn-sm btn-warning mb-1" title="Edit">
+                                    <i class="fas fa-pen"></i>
                                 </a>
 
-                                <!-- 2. Tombol Konfirmasi Pembayaran -->
-                                <?php if ($ps !== 'Lunas' || $st === 'pending'): ?>
-                                    <form action="konfirmasi_pembayaran.php" method="POST" class="d-inline">
-                                        <input type="hidden" name="id" value="<?= (int)$b['id_booking']; ?>">
-                                        <button type="submit" class="btn btn-sm btn-success mb-1" title="Konfirmasi Pembayaran" onclick="return confirm('Konfirmasi pembayaran dari user? Status otomatis menjadi Pending.');">
-                                            <i class="fas fa-check-circle"></i>
-                                        </button>
-                                    </form>
-                                <?php endif; ?>
+                                <!-- 2. Tombol Konfirmasi Pembayaran (Ubah Status ke Pending) -->
+                                <a href="ubah_status_pending.php?id=<?= (int)$b['id_booking']; ?>" class="btn btn-sm btn-success mb-1" title="Konfirmasi Pembayaran" onclick="return confirm('Konfirmasi pembayaran dari user dan ubah status otomatis menjadi Pending?');">
+                                    <i class="fas fa-check-circle"></i>
+                                </a>
 
-                                <!-- 3. Tombol Edit -->
-                                <?php if (!in_array($st, ['checkout','dibatalkan'], true)): ?>
-                                    <a href="edit.php?id=<?= (int)$b['id_booking']; ?>" class="btn btn-sm btn-warning mb-1" title="Edit">
-                                        <i class="fas fa-pen"></i>
-                                    </a>
-                                <?php endif; ?>
-
-                                <!-- 4. Tombol Hapus -->
+                                <!-- 3. Tombol Hapus -->
                                 <a href="hapus.php?id=<?= (int)$b['id_booking']; ?>" class="btn btn-sm btn-danger mb-1" title="Hapus" onclick="return confirm('Yakin menghapus data pemesanan ini? Data pembayaran terkait juga akan dihapus.');">
                                     <i class="fas fa-trash"></i>
                                 </a>

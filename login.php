@@ -101,13 +101,13 @@ if (isset($_GET['error'])) {
             <div id="sliderHotel" class="carousel slide carousel-fade h-100" data-bs-ride="carousel" data-bs-interval="3000">
                 <div class="carousel-inner h-100">
                     <div class="carousel-item active h-100">
-                        <img src="assets_volt/img/hotel1.jpg" class="d-block w-100" alt="Hotel 1">
+                        <img src="assets_volt/img/wallpaper hotel.png" class="d-block w-100" alt="Hotel 1">
                     </div>
                     <div class="carousel-item h-100">
-                        <img src="assets_volt/img/hotel2.jpg" class="d-block w-100" alt="Hotel Kamar">
+                        <img src="assets_volt/img/kamar standard.jpeg" class="d-block w-100" alt="Hotel Kamar">
                     </div>
                     <div class="carousel-item h-100">
-                        <img src="assets_volt/img/hotel3.jpg" class="d-block w-100" alt="Hotel Kolam Renang">
+                        <img src="assets_volt/img/kamar superior.jpeg" class="d-block w-100" alt="Hotel Kolam Renang">
                     </div>
                 </div>
 
@@ -127,8 +127,8 @@ if (isset($_GET['error'])) {
             <div class="w-100 px-4 px-md-5 login-panel">
 
                 <div class="text-center mb-5">
-                    <img src="assets_volt/img/logo hotel 2.jpg" alt="Logo Hotel" style="width: 80px; margin-bottom: 15px;">
-                    <h5 class="fw-bold mb-1">MANAJEMEN GRAND DIAN HOTEL BUMIAYU</h5>
+                    <img src="assets_volt/img/logo hotel 2.png" alt="Logo Hotel" style="width: 80px; margin-bottom: 15px;">
+                    <h5 class="fw-bold mb-1">MANAJEMEN Sida Mulia Hotel BUMIAYU</h5>
                     <p class="text-muted small">KABUPATEN BREBES</p>
                 </div>
 
@@ -164,11 +164,11 @@ if (isset($_GET['error'])) {
                             required>
                     </div>
 
-                    <button type="submit" name="btn_login" class="btn btn-masuk w-100 py-2 fw-bold mb-3">
+                    <button type="submit" name="btn_login" class="btn btn-success w-100 py-2 fw-bold mb-3">
                         Masuk
                     </button>
                     <div class="text-center mt-3">
-                        <p class="text-muted small">Belum punya akun? <a href="register.php" class="text-danger text-decoration-none fw-bold">Buat Akun</a></p>
+                        <p class="text-muted small">Belum punya akun? <a href="register.php" class="text-success text-decoration-none fw-bold">Buat Akun</a></p>
                     </div>
                 </form>
 
@@ -179,7 +179,7 @@ if (isset($_GET['error'])) {
                 </div>
 
                 <div class="text-center mt-5">
-                    <h3 class="text-danger" style="font-family: inherit; margin-bottom: 0; font-weight: 800;">GRAND DIAN HOTEL</h3>
+                    <h3 class="text-success" style="font-family: inherit; margin-bottom: 0; font-weight: 800;">Sida Mulia Hotel</h3>
                     <p class="small text-muted mt-1">Copyright © Manajemen Hotel 2026</p>
                 </div>
 

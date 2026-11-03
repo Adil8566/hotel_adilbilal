@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 if (!isset($_SESSION['id_pengguna'])) {
@@ -18,16 +17,15 @@ require_once '../../database/koneksi.php';
 $pencarian = "";
 if (isset($_GET['cari']) && !empty(trim($_GET['cari']))) {
     $pencarian = mysqli_real_escape_string($con, trim($_GET['cari']));
+    // PERBAIKAN: Menghapus backslash (\) yang salah penempatan pada wildcard %
     $query = mysqli_query($con, "SELECT * FROM tbl_tipe_kamar WHERE nama_tipe LIKE '%$pencarian%' OR fasilitas LIKE '%$pencarian%' ORDER BY id_tipe DESC");
 } else {
     $query = mysqli_query($con, "SELECT * FROM tbl_tipe_kamar ORDER BY id_tipe DESC");
 }
-
 ?>
 
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,9 +33,7 @@ if (isset($_GET['cari']) && !empty(trim($_GET['cari']))) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="../../assets_mantis/css/mantis-hotel.css">
-
 </head>
-
 <body class="bg-light">
 
 <nav class="navbar navbar-light mantis-topbar">
@@ -49,7 +45,8 @@ if (isset($_GET['cari']) && !empty(trim($_GET['cari']))) {
         <div class="text-white">
             <span class="me-3">
                 <i class="fas fa-user"></i>
-                <?= htmlspecialchars($_SESSION['nama']); ?>
+                <!-- PERBAIKAN: Tambahan null coalescing agar tidak warning jika session nama kosong -->
+                <?= htmlspecialchars($_SESSION['nama'] ?? 'Admin'); ?>
             </span>
             <a href="../../logout.php" class="btn btn-danger btn-sm">
                 <i class="fas fa-sign-out-alt"></i>
@@ -66,22 +63,41 @@ if (isset($_GET['cari']) && !empty(trim($_GET['cari']))) {
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
                 <h3>Tipe Kamar</h3>
-                
             </div>
             <a href="tambah.php" class="btn btn-primary">
                 <i class="fas fa-plus"></i> Tambah Tipe Kamar
             </a>
         </div>
 
-        <?php if (isset($_GET['pesan'])) { ?>
-            <?php if ($_GET['pesan'] == 'tambah') { ?>
-                <div class="alert alert-success">Data tipe kamar berhasil ditambahkan.</div>
-            <?php } elseif ($_GET['pesan'] == 'edit') { ?>
-                <div class="alert alert-success">Data tipe kamar berhasil diedit.</div>
-            <?php } elseif ($_GET['pesan'] == 'hapus') { ?>
-                <div class="alert alert-success">Data tipe kamar berhasil dihapus.</div>
-            <?php } ?>
-        <?php } ?>
+        <!-- Penanganan Notifikasi / Alert -->
+        <?php if (isset($_GET['pesan'])): ?>
+            <?php if ($_GET['pesan'] == 'tambah'): ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Data tipe kamar berhasil ditambahkan.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php elseif ($_GET['pesan'] == 'edit'): ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Data tipe kamar berhasil diedit.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php elseif ($_GET['pesan'] == 'hapus'): ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Data tipe kamar berhasil dihapus.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php elseif ($_GET['pesan'] == 'gagal_terpakai'): ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Gagal menghapus!</strong> Tipe kamar tidak dapat dihapus karena masih digunakan oleh data kamar.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php elseif ($_GET['pesan'] == 'gagal'): ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Terjadi kesalahan saat menghapus data tipe kamar.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
 
         <div class="card shadow-sm border-0">
             <div class="card-body">
@@ -118,16 +134,18 @@ if (isset($_GET['cari']) && !empty(trim($_GET['cari']))) {
                         <tbody>
                         <?php
                         $no = 1;
-                        if (mysqli_num_rows($query) > 0) {
-                            while ($data = mysqli_fetch_assoc($query)) {
+                        if ($query && mysqli_num_rows($query) > 0):
+                            while ($data = mysqli_fetch_assoc($query)):
                         ?>
+                            <!-- PERBAIKAN: Melanjutkan penutup array dan tag HTML tabel yang terpotong -->
                             <tr>
                                 <td><?= $no++; ?></td>
-                                <td><?= htmlspecialchars($data['nama_tipe']); ?></td>
-                                <td>Rp <?= number_format($data['harga'], 0, ',', '.'); ?></td>
-                                <td><?= nl2br(htmlspecialchars($data['fasilitas'])); ?></td>
-                                <td><?= nl2br(htmlspecialchars($data['keterangan'])); ?></td>
+                                <td><?= htmlspecialchars($data['nama_tipe'] ?? ''); ?></td>
+                                <td>Rp <?= number_format((float)($data['harga'] ?? 0), 0, ',', '.'); ?></td>
+                                <td><?= htmlspecialchars($data['fasilitas'] ?? ''); ?></td>
+                                <td><?= htmlspecialchars($data['keterangan'] ?? ''); ?></td>
                                 <td>
+                                    <!-- Sesuaikan nama file dan parameter 'id' sesuai dengan struktur Anda -->
                                     <a href="edit.php?id=<?= $data['id_tipe']; ?>" class="btn btn-warning btn-sm">
                                         <i class="fas fa-edit"></i> Edit
                                     </a>
@@ -137,23 +155,22 @@ if (isset($_GET['cari']) && !empty(trim($_GET['cari']))) {
                                 </td>
                             </tr>
                         <?php
-                            }
-                        } else {
+                            endwhile;
+                        else:
                         ?>
                             <tr>
-                                <td colspan="6" class="text-center text-muted py-3">
-                                    <?= !empty($_GET['cari']) ? 'Data tipe kamar yang dicari tidak ditemukan.' : 'Belum ada data tipe kamar.'; ?>
-                                </td>
+                                <td colspan="6" class="text-center text-muted">Data tipe kamar tidak ditemukan.</td>
                             </tr>
-                        <?php } ?>
+                        <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
 
+<!-- PERBAIKAN: Penambahan Script Bootstrap agar notifikasi Alert (x) bisa di-dismiss -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
